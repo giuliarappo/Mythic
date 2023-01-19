@@ -1,8 +1,18 @@
 class MenuTendina extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { selecteOption: '' };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ selecteOption: event.target.value });
+    }
     
     render() { 
         return (
             <div>
+                <select onChange={this.handleChange}>
                 <option></option>
                 <option value="impossible">impossible</option>
                 <option value="noWay">noWay</option>
