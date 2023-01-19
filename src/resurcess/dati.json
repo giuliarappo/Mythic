@@ -1,0 +1,564 @@
+[
+    {
+        "probability": "impossible",
+        "value": [
+            
+            {
+                "exceptionalYes": 0,
+                "yesNo": -20,
+                "exceptionalNo": 77
+            },
+            {
+                "exceptionalYes": 0,
+                "yesNo": 0,
+                "exceptionalNo": 81
+            },
+            {
+                "exceptionalYes": 0,
+                "yesNo": 0,
+                "exceptionalNo": 81
+            },
+            {
+                "exceptionalYes": 1,
+                "yesNo": 5,
+                "exceptionalNo": 82
+            },
+            {
+                "exceptionalYes": 1,
+                "yesNo": 5,
+                "exceptionalNo": 82
+            },
+            {
+                "exceptionalYes": 2,
+                "yesNo": 10,
+                "exceptionalNo": 83
+            },
+            {
+                "exceptionalYes": 3,
+                "yesNo": 15,
+                "exceptionalNo": 84
+            },
+            {
+                "exceptionalYes": 5,
+                "yesNo": 25,
+                "exceptionalNo": 86
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            }  
+        
+        ]
+    },
+    {
+        "probability": "noWay",
+        "value": [
+
+            {
+                "exceptionalYes": 0,
+                "yesNo": 0,
+                "exceptionalNo": 81
+            },
+            {
+                "exceptionalYes": 1,
+                "yesNo": 5,
+                "exceptionalNo": 82
+            },
+            {
+                "exceptionalYes": 1,
+                "yesNo": 5,
+                "exceptionalNo": 82
+            },
+            {
+                "exceptionalYes": 2,
+                "yesNo": 10,
+                "exceptionalNo": 83
+            },
+            {
+                "exceptionalYes": 3,
+                "yesNo": 15,
+                "exceptionalNo": 84
+            },
+            {
+                "exceptionalYes": 5,
+                "yesNo": 25,
+                "exceptionalNo": 86
+            },
+            {
+                "exceptionalYes": 7,
+                "yesNo": 35,
+                "exceptionalNo": 88
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 75,
+                "exceptionalNo": 96
+            }
+        ]
+    },
+    {
+        "probability": "veryUnlikely",
+        "value": [
+
+            {
+                "exceptionalYes": 1,
+                "yesNo": 5,
+                "exceptionalNo": 82
+            },
+            {
+                "exceptionalYes": 1,
+                "yesNo": 5,
+                "exceptionalNo": 82
+            },
+            {
+                "exceptionalYes": 2,
+                "yesNo": 10,
+                "exceptionalNo": 83
+            },
+            {
+                "exceptionalYes": 3,
+                "yesNo": 15,
+                "exceptionalNo": 84
+            },
+            {
+                "exceptionalYes": 5,
+                "yesNo": 25,
+                "exceptionalNo": 86
+            },
+            {
+                "exceptionalYes": 9,
+                "yesNo": 45,
+                "exceptionalNo": 90
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            },
+            {
+                "exceptionalYes": 13,
+                "yesNo": 65,
+                "exceptionalNo": 94
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 85,
+                "exceptionalNo": 97
+            }
+        ]
+    },
+    {
+        "probability": "unlikely",
+        "value": [
+
+            {
+                "exceptionalYes": 1,
+                "yesNo": 5,
+                "exceptionalNo": 82
+            },
+            {
+                "exceptionalYes": 2,
+                "yesNo": 10,
+                "exceptionalNo": 83
+            },
+            {
+                "exceptionalYes": 3,
+                "yesNo": 15,
+                "exceptionalNo": 84
+            },
+            {
+                "exceptionalYes": 4,
+                "yesNo": 20,
+                "exceptionalNo": 85
+            },
+            {
+                "exceptionalYes": 7,
+                "yesNo": 35,
+                "exceptionalNo": 88
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            },
+            {
+                "exceptionalYes": 11,
+                "yesNo": 55,
+                "exceptionalNo": 92
+            },
+            {
+                "exceptionalYes": 15,
+                "yesNo": 75,
+                "exceptionalNo": 96
+            },
+            {
+                "exceptionalYes": 18,
+                "yesNo": 90,
+                "exceptionalNo": 99
+            }
+        ]
+    },
+    {
+        "probability": "50_50",
+        "value": [
+
+            {
+                "exceptionalYes": 2,
+                "yesNo": 10,
+                "exceptionalNo": 83
+            },
+            {
+                "exceptionalYes": 3,
+                "yesNo": 15,
+                "exceptionalNo": 84
+            },
+            {
+                "exceptionalYes": 5,
+                "yesNo": 25,
+                "exceptionalNo": 86
+            },
+            {
+                "exceptionalYes": 7,
+                "yesNo": 35,
+                "exceptionalNo": 88
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            },
+            {
+                "exceptionalYes": 13,
+                "yesNo": 65,
+                "exceptionalNo": 94
+            },
+            {
+                "exceptionalYes": 15,
+                "yesNo": 75,
+                "exceptionalNo": 96
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 85,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            }
+        ]
+    },
+    {
+        "probability": "somewhatLikely",
+        "value": [
+
+            {
+                "exceptionalYes": 2,
+                "yesNo": 10,
+                "exceptionalNo": 83
+            },
+            {
+                "exceptionalYes": 3,
+                "yesNo": 15,
+                "exceptionalNo": 84
+            },
+            {
+                "exceptionalYes": 5,
+                "yesNo": 25,
+                "exceptionalNo": 86
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            },
+            {
+                "exceptionalYes": 13,
+                "yesNo": 65,
+                "exceptionalNo": 94
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 80,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 85,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 18,
+                "yesNo": 90,
+                "exceptionalNo": 99
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            }
+        ]
+    },
+    {
+        "probability": "likely",
+        "value": [
+
+            {
+                "exceptionalYes": 5,
+                "yesNo": 25,
+                "exceptionalNo": 86
+            },
+            {
+                "exceptionalYes": 7,
+                "yesNo": 35,
+                "exceptionalNo": 88
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            },
+            {
+                "exceptionalYes": 11,
+                "yesNo": 55,
+                "exceptionalNo": 92
+            },
+            {
+                "exceptionalYes": 15,
+                "yesNo": 75,
+                "exceptionalNo": 96
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 85,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 18,
+                "yesNo": 90,
+                "exceptionalNo": 99
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 20,
+                "yesNo": 100,
+                "exceptionalNo": 0
+            }
+        ]
+    },
+    {
+        "probability": "veryLikely",
+        "value": [
+
+            {
+                "exceptionalYes": 9,
+                "yesNo": 45,
+                "exceptionalNo": 90
+            },
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            },
+            {
+                "exceptionalYes": 13,
+                "yesNo": 65,
+                "exceptionalNo": 94
+            },
+            {
+                "exceptionalYes": 15,
+                "yesNo": 75,
+                "exceptionalNo": 96
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 85,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 18,
+                "yesNo": 90,
+                "exceptionalNo": 99
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 21,
+                "yesNo": 105,
+                "exceptionalNo": 0
+            }
+        ]
+    },
+    {
+        "probability": "nearSureThing",
+        "value": [
+
+            {
+                "exceptionalYes": 10,
+                "yesNo": 50,
+                "exceptionalNo": 91
+            },
+            {
+                "exceptionalYes": 11,
+                "yesNo": 55,
+                "exceptionalNo": 92
+            },
+            {
+                "exceptionalYes": 15,
+                "yesNo": 75,
+                "exceptionalNo": 96
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 80,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 18,
+                "yesNo": 90,
+                "exceptionalNo": 99
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 20,
+                "yesNo": 100,
+                "exceptionalNo": 0
+            },
+            {
+                "exceptionalYes": 23,
+                "yesNo": 115,
+                "exceptionalNo": 0
+            }
+        ]
+    },
+    {
+        "probability": "aSureThing",
+        "value": [
+
+            {
+                "exceptionalYes": 11,
+                "yesNo": 55,
+                "exceptionalNo": 92
+            },
+            {
+                "exceptionalYes": 13,
+                "yesNo": 65,
+                "exceptionalNo": 94
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 80,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 85,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 18,
+                "yesNo": 90,
+                "exceptionalNo": 99
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 22,
+                "yesNo": 110,
+                "exceptionalNo": 0
+            },
+            {
+                "exceptionalYes": 25,
+                "yesNo": 125,
+                "exceptionalNo": 0
+            }
+        ]
+    },
+    {
+        "probability": "hasToBe",
+        "value": [
+
+            {
+                "exceptionalYes": 16,
+                "yesNo": 80,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 16,
+                "yesNo": 85,
+                "exceptionalNo": 97
+            },
+            {
+                "exceptionalYes": 18,
+                "yesNo": 90,
+                "exceptionalNo": 99
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 19,
+                "yesNo": 95,
+                "exceptionalNo": 100
+            },
+            {
+                "exceptionalYes": 20,
+                "yesNo": 100,
+                "exceptionalNo": 0
+            },
+            {
+                "exceptionalYes": 20,
+                "yesNo": 100,
+                "exceptionalNo": 0
+            },
+            {
+                "exceptionalYes": 26,
+                "yesNo": 130,
+                "exceptionalNo": 0
+            },
+            {
+                "exceptionalYes": 26,
+                "yesNo": 145,
+                "exceptionalNo": 0
+            }
+        ]
+    }
+]
