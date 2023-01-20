@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
 import fateChart from './resurcess/dati.json';
 import './Table.css';
+import { useState } from "react";
+
+//devo passare il nome della probabilita da App.js a Table.js
+// vedere se c'e' un modo di passare lo state aggiornato allo stile di un componente
 
 
 
-//Selezionare la riga corrispondente a quella selezionata(passando una props? o lo state)
+function TableWithJsonData(props) {
 
+  let probabilitaScelta = props.probabilitaScelta;
 
-function TableWithJsonData() {
-  console.log("prova");
+  const {state, setState} = useState("none");
+ 
+  
+
   const DisplayData = fateChart.map(
     (info, index) => {
       return(
         <tr>
-          <th>{info.probability}</th>
+        
+          <th style={{backgroundColor: probabilitaScelta === info.probability ? "green" : state}}>{info.probability}</th>
           {info.value.map((values) => {
             console.log("yesNo: " + values.yesNo)
             return(
-              <th>
+              <th style={{backgroundColor: probabilitaScelta === info.probability ? 'green' : state}}>
                 <span>
                   {values.exceptionalYes}
                 </span>
@@ -62,6 +70,7 @@ function TableWithJsonData() {
     );
   
 }
+
 
 
  
