@@ -29,11 +29,12 @@ class MenuTendina extends Component {
     render() { 
         return (
             <div>
-                <select>
+                <select onChange={this.handleChange}>
                     <option></option>
                     {DisplayData}
                 </select>
                 <CalcolaRisposta selecteOption={this.state.selecteOption}/>
+                <button style={{display: this.state.selecteOption === '' ? "none" : "block"}}>Calcola Risposta!</button>
             </div>
         );
     }
