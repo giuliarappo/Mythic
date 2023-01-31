@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
-import fateChart from './resurcess/dati.json';
 import './Table.css';
+import { useState } from "react";
+
+
+// aggiungere caos e selezionare la cella corrispettiva
+// dado (o 2 dadi)
+// calcolo risposta con visualizzazione risultato (if? conditional rendering?)
+
+//BACKEND
+//CRUD
+//java databasse 0 spring 
+//creazione classe utente da console (operazioni crud)
 
 
 
-//Selezionare la riga corrispondente a quella selezionata(passando una props? o lo state)
 
+function Table(props) {
 
-function TableWithJsonData() {
-  console.log("prova");
+  let probabilitaScelta = props.probabilitaScelta;
+  let caoSelezionato = props.caoSelezionato;
+  const fateChart = props.fateChart
+ 
+
+  const {state, setState} = useState("non-selezionato");
+ // const cambiaColore = setState..
+ 
+  
+ 
   const DisplayData = fateChart.map(
     (info, index) => {
       return(
         <tr>
-          <th>{info.probability}</th>
-          {info.value.map((values) => {
+        
+          <th id={"tb_" + info.probability} style={{backgroundColor: probabilitaScelta === info.probability ? "green" : state}}>{info.probability}</th>
+          {info.value.map((values, index) => {
             console.log("yesNo: " + values.yesNo)
+            index = index+1;
             return(
-              <th>
+              <th id={"th_" + info.probability + index} className={"prova " + (probabilitaScelta === info.probability && caoSelezionato === index ? "selezionato" : "no-selezionato")}>
                 <span>
                   {values.exceptionalYes}
                 </span>
@@ -30,6 +50,8 @@ function TableWithJsonData() {
                 
               </th>
             )
+
+            const valoriCasellaSelezionata = info.probability
           })}
         </tr>
         
@@ -41,6 +63,7 @@ function TableWithJsonData() {
     console.log(DisplayData);
     return (
       <div class="centered">
+        
         <table>
           <thead>
             <tr>
@@ -58,12 +81,14 @@ function TableWithJsonData() {
           </thead>
           {DisplayData}
         </table>
+        <p>Hai selezionato {caoSelezionato}</p>
       </div>
     );
   
 }
 
 
+
  
-export default TableWithJsonData;
+export default Table;
 
