@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import CalcolaRisposta from './CalcolaRisposta';
+import configuration from './resurcess/configuration.json';
 
 const checkbox = document.getElementById('numeriPariTest');
 
@@ -12,14 +13,20 @@ class Dado extends Component {
 
     state = {
         risultatoLancioDado: 0,
-        eventoInaspettato: false
+        eventoInaspettato: false,
       } 
 
     randomNumber = () => {
 
-        const risultato = Math.floor(Math.random() * 100);
+        let risultato;
+
+        risultato = Math.floor(Math.random() * 100) + 1;
         this.setState({risultatoLancioDado: risultato});
         this.props.calcolaRisposta(risultato);
+
+        if (configuration.dammiSoloNumeriPolindromi == true) {
+            risultato = 11;
+        }
 
         if (risultato % 11 === 0) {
             alert("Evento inaspettato!!")
