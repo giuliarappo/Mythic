@@ -23,18 +23,22 @@ class MostraRisposta extends Component {
         if (_rispostaDado < exceptionalYes) {
 
             this.setState({messaggio: 'Assolutamente Si!'})
+            return
 
         } if (_rispostaDado < yesNo && _rispostaDado >= exceptionalYes) {
             
             this.setState({messaggio: 'Si!'})
+            return
 
         } if (_rispostaDado >= yesNo && _rispostaDado < exceptionalNo) {
             
             this.setState({messaggio: 'No!'})
+            return
 
         } if (_rispostaDado > exceptionalNo) {
 
             this.setState({messaggio: 'Assolutamente No!'})
+            return
 
         }
     }
