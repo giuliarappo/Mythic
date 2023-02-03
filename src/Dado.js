@@ -22,15 +22,15 @@ class Dado extends Component {
 
         risultato = Math.floor(Math.random() * 100) + 1;
         this.setState({risultatoLancioDado: risultato});
+
+        if (configuration.dammiSoloNumeriPolindromi === true) {
+            risultato = 22;
+        }
+        
         this.props.calcolaRisposta(risultato);
 
-        if (configuration.dammiSoloNumeriPolindromi == true) {
-            risultato = 11;
-        }
-
-        if (risultato % 11 === 0) {
-            alert("Evento inaspettato!!")
-        }
+       
+       
     }
 
 

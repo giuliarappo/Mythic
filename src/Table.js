@@ -18,7 +18,7 @@ import { useState } from "react";
 function Table(props) {
 
   let probabilitaScelta = props.probabilitaScelta;
-  let caoSelezionato = props.caoSelezionato;
+  let caosSelezionato = props.caosSelezionato;
   const fateChart = props.fateChart
  
 
@@ -37,7 +37,7 @@ function Table(props) {
             console.log("yesNo: " + values.yesNo)
             index = index+1;
             return(
-              <th id={"th_" + info.probability + index} className={"prova " + (probabilitaScelta === info.probability && caoSelezionato === index ? "selezionato" : "no-selezionato")}>
+              <th id={"th_" + info.probability + index} className={"prova " + (probabilitaScelta === info.probability && caosSelezionato === index ? "selezionato" : "no-selezionato")}>
                 <span>
                   {values.exceptionalYes}
                 </span>
@@ -81,7 +81,7 @@ function Table(props) {
           </thead>
           {DisplayData}
         </table>
-        <p>Hai selezionato {caoSelezionato}</p>
+        <p>Hai selezionato {caosSelezionato}</p>
       </div>
     );
   

@@ -6,13 +6,14 @@ import Caos from './Caos';
 import Table from './Table';
 import Dado from './Dado';
 import MostraRisposta from './MostraRisposta';
+import VerificaEventoInaspettato from './VerificaEventoInaspettato';
 
 const ref = React.createRef();
 let yesNo;
 let exceptionalYes;
 let exceptionalNo;
 
-// CONTROLLARE COME VWNGONO GESTITI I DATI NEL FATECHART DURANTE UNA PARTITA (CERCARE VIDEO SU YOUTUBE) 
+// GLI EVENTI INASPETTATI CI SONO SOLAMENTE SE IL NUMERO E' INFERIORE AL CAOS
 // EVENTI INASPETTATI
 // TROVARE UN MODO PER TESTARE GLI EVENTI SENZA MODIFICARE IL CODICE (TIPO CON UN FILE DI CONFIGURAZIONE ESTERNO)
 // configurazione spring boot
@@ -26,13 +27,15 @@ class App extends Component {
         this.state = { 
             selectedOption: '',
             cellaSelezionata: '',
-            caoSelezionato: 1,
+            caosSelezionato: 1,
             lancioDado: 0,
             exceptionalYes: 0 
         };
 
         this.probabilitaScelta = this.probabilitaScelta.bind(this);
     }
+
+    
     
 
     prendeCella = () => {
@@ -41,7 +44,7 @@ class App extends Component {
                 if (info.probability === this.state.selectedOption) {
                     info.value.map(
                         (info, index) => {
-                            if (index === this.state.caoSelezionato - 1) {
+                            if (index === this.state.caosSelezionato - 1) {
                                 yesNo = info.yesNo;
                                 exceptionalYes = info.exceptionalYes;
                                 exceptionalNo = info.exceptionalNo;
@@ -62,12 +65,13 @@ class App extends Component {
     
 
     valoreCaos = (caos) => {
-        this.setState({ caoSelezionato: caos })
+        this.setState({ caosSelezionato: caos })
     }
 
     calcolaRisposta = (_lancioDado) => {
         this.prendeCella();
         console.log(exceptionalYes);
+        ref.current.varificaValori(_lancioDado, this.state.caosSelezionato)
         ref.current.verificaRisposta(_lancioDado, yesNo, exceptionalYes, exceptionalNo);
         
     }
@@ -79,12 +83,13 @@ class App extends Component {
     render() { 
         return (
             <div>
-                <Table probabilitaScelta={this.state.selectedOption} caoSelezionato={this.state.caoSelezionato} fateChart={fateChart}/>
+                <Table probabilitaScelta={this.state.selectedOption} caosSelezionato={this.state.caosSelezionato} fateChart={fateChart}/>
                 <MenuScelta probabilitaScelta={this.probabilitaScelta}/>
                 <Caos valoreCaos={this.valoreCaos}/>
                 <button onClick={this.passaProbabilitaScelta} style={{display: this.state.selectedOption === '' ? "none" : "block"}}>Calcola</button>
                 <Dado probabilitaScelta={this.state.selectedOption} calcolaRisposta={this.calcolaRisposta}/>
-                <MostraRisposta risultatoDado={this.state.lancioDado} ref={ref}/>               
+                <MostraRisposta risultatoDado={this.state.lancioDado} ref={ref}/>  
+                <VerificaEventoInaspettato risultatoDado={this.state.lancioDado} caosSelezionato={this.state.caosSelezionato} ref={ref}/>            
 
             </div>
         );
