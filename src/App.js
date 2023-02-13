@@ -26,13 +26,12 @@ class App extends Component {
         super(props);
         this.state = { 
             selectedOption: '',
-            cellaSelezionata: '',
             caosSelezionato: 1,
             lancioDado: 0,
             exceptionalYes: 0,
             domanda: ''
         };
-
+        this.creaFateChart = this.creaFateChart.bind(this);
         this.probabilitaScelta = this.probabilitaScelta.bind(this);
     }
 
@@ -56,12 +55,41 @@ class App extends Component {
             }
         )
     }
+
+    creaFateChart = () => fateChart.map(
+            (info, index) => {
+                console.log(this.state.selectedOption);
+            return(
+                <tr>
+                    <th id={"tb_" + info.probability} style={{backgroundColor: this.state.selectedOption === info.probability ? 'green' : 'white'}}>{info.probability}</th>
+                    {info.value.map((values, index) => {
+                        index = index+1;
+                        return(
+                          <th id={"th_" + info.probability + index} style={{backgroundColor: this.state.caosSelezionato === index && this.state.selectedOption === info.probability ? 'green' : 'white'}}>
+                            <span>
+                              {values.exceptionalYes}
+                            </span>
+                            <span>
+                              {values.yesNo}
+                            </span>
+                            <span>
+                              {values.exceptionalNo}
+                            </span>
+                            
+                          </th>
+                        )
+                    }) }
+                </tr>
+          )
+        }
+      )
   
 
-    probabilitaScelta = (probabilita) => {
+    probabilitaScelta = (evento) => {
         this.setState({ 
-            selectedOption: probabilita
+            selectedOption: evento.target.value
         });
+        console.log(this.state.selectedOption)
     }
     
 
@@ -84,7 +112,6 @@ class App extends Component {
     render() { 
         return (
             <div>
-                <Table probabilitaScelta={this.state.selectedOption} caosSelezionato={this.state.caosSelezionato} fateChart={fateChart}/>
                 <InputDomanda input={this.state.domanda}/>
                 <MenuScelta probabilitaScelta={this.probabilitaScelta}/>
                 <Caos valoreCaos={this.valoreCaos}/>
@@ -92,7 +119,9 @@ class App extends Component {
                 <Dado probabilitaScelta={this.state.selectedOption} calcolaRisposta={this.calcolaRisposta}/>
                 <MostraRisposta risultatoDado={this.state.lancioDado} ref={refVerificaRisposta}/>  
                 <VerificaEventoInaspettato risultatoDado={this.state.lancioDado} caosSelezionato={this.state.caosSelezionato} ref={refVerificaValori}/>            
-
+                <Table>
+                    {this.creaFateChart()}
+                </Table>
             </div>
         );
     }
