@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './Table.css';
 import { useState } from "react";
-
+import '../Table.css'
 
 // aggiungere caos e selezionare la cella corrispettiva
 // dado (o 2 dadi)
@@ -15,11 +14,7 @@ import { useState } from "react";
 
 
 
-function Table(props) {
-
-  let probabilitaScelta = props.probabilitaScelta;
-  let caosSelezionato = props.caosSelezionato;
-  const fateChart = props.fateChart
+function Table( { probabilitaScelta, caosSelezionato, fateChart }) {
  
 
   const {state, setState} = useState("non-selezionato");
@@ -62,7 +57,7 @@ function Table(props) {
  
     console.log(DisplayData);
     return (
-      <div class="centered">
+      <div className="centered">
         
         <table>
           <thead>

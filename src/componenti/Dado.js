@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import CalcolaRisposta from './CalcolaRisposta';
-import configuration from './resurcess/configuration.json';
+
+//importa file di configurazione
+import configuration from '../resurcess/configuration.json';
 
 const checkbox = document.getElementById('numeriPariTest');
 
@@ -24,7 +24,8 @@ class Dado extends Component {
         this.setState({risultatoLancioDado: risultato});
 
         if (configuration.dammiSoloNumeriPolindromi === true) {
-            risultato = 22;
+            
+            risultato = Math.round((Math.random() * 9) + 1) * 11;
         }
         
         this.props.calcolaRisposta(risultato);

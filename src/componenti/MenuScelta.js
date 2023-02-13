@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fateChart from './resurcess/dati.json';
+import fateChart from '../resurcess/dati.json';
 
 
 const DisplayData = fateChart.map(

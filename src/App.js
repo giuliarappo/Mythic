@@ -1,24 +1,24 @@
 import React, { Component, useRef } from 'react';
-import fateChart from './resurcess/dati.json';
-import CalcolaRisposta from './CalcolaRisposta';
-import MenuScelta from './MenuScelta';
-import Caos from './Caos';
-import Table from './Table';
-import Dado from './Dado';
-import MostraRisposta from './MostraRisposta';
-import VerificaEventoInaspettato from './VerificaEventoInaspettato';
 
-const ref = React.createRef();
+//Importa componenti
+import fateChart from './resurcess/dati.json';
+import MenuScelta from './componenti/MenuScelta';
+import Caos from './componenti/Caos';
+import Table from './componenti/Table';
+import Dado from './componenti/Dado';
+import MostraRisposta from './componenti/MostraRisposta';
+import VerificaEventoInaspettato from './componenti/VerificaEventoInaspettato';
+import InputDomanda from './componenti/InputDomanda';
+
+const refVerificaValori = React.createRef();
+const refVerificaRisposta = React.createRef();
 let yesNo;
 let exceptionalYes;
 let exceptionalNo;
 
-// GLI EVENTI INASPETTATI CI SONO SOLAMENTE SE IL NUMERO E' INFERIORE AL CAOS
-// EVENTI INASPETTATI
 // TROVARE UN MODO PER TESTARE GLI EVENTI SENZA MODIFICARE IL CODICE (TIPO CON UN FILE DI CONFIGURAZIONE ESTERNO)
 // configurazione spring boot
-
-
+// POSSIBILITA' DI INSERIRE LE DOMANDE E COMPONENTE LISTA CON DOMANDE E RISPOSTE
 
 
 class App extends Component {
@@ -29,7 +29,8 @@ class App extends Component {
             cellaSelezionata: '',
             caosSelezionato: 1,
             lancioDado: 0,
-            exceptionalYes: 0 
+            exceptionalYes: 0,
+            domanda: ''
         };
 
         this.probabilitaScelta = this.probabilitaScelta.bind(this);
@@ -71,8 +72,8 @@ class App extends Component {
     calcolaRisposta = (_lancioDado) => {
         this.prendeCella();
         console.log(exceptionalYes);
-        ref.current.varificaValori(_lancioDado, this.state.caosSelezionato)
-        ref.current.verificaRisposta(_lancioDado, yesNo, exceptionalYes, exceptionalNo);
+        refVerificaValori.current.varificaValori(_lancioDado, this.state.caosSelezionato)
+        refVerificaRisposta.current.verificaRisposta(_lancioDado, yesNo, exceptionalYes, exceptionalNo);
         
     }
 
@@ -84,12 +85,13 @@ class App extends Component {
         return (
             <div>
                 <Table probabilitaScelta={this.state.selectedOption} caosSelezionato={this.state.caosSelezionato} fateChart={fateChart}/>
+                <InputDomanda input={this.state.domanda}/>
                 <MenuScelta probabilitaScelta={this.probabilitaScelta}/>
                 <Caos valoreCaos={this.valoreCaos}/>
                 <button onClick={this.passaProbabilitaScelta} style={{display: this.state.selectedOption === '' ? "none" : "block"}}>Calcola</button>
                 <Dado probabilitaScelta={this.state.selectedOption} calcolaRisposta={this.calcolaRisposta}/>
-                <MostraRisposta risultatoDado={this.state.lancioDado} ref={ref}/>  
-                <VerificaEventoInaspettato risultatoDado={this.state.lancioDado} caosSelezionato={this.state.caosSelezionato} ref={ref}/>            
+                <MostraRisposta risultatoDado={this.state.lancioDado} ref={refVerificaRisposta}/>  
+                <VerificaEventoInaspettato risultatoDado={this.state.lancioDado} caosSelezionato={this.state.caosSelezionato} ref={refVerificaValori}/>            
 
             </div>
         );
