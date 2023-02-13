@@ -17,14 +17,10 @@ const DisplayData = fateChart.map(
 class MenuScelta extends Component {
     
 
-    handleChange = (event) => {
-        this.props.probabilitaScelta(event.target.value);
-        event.preventDefault();
-    }
 
     render() { 
         return (
-            <select onChange={this.handleChange}>
+            <select onChange={this.props.probabilitaScelta}>
                 <option></option>
                 {DisplayData}
             </select>
