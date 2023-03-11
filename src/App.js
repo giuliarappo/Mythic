@@ -15,6 +15,7 @@ const refVerificaRisposta = React.createRef();
 let yesNo;
 let exceptionalYes;
 let exceptionalNo;
+let fateChartJsx;
 
 // TROVARE UN MODO PER TESTARE GLI EVENTI SENZA MODIFICARE IL CODICE (TIPO CON UN FILE DI CONFIGURAZIONE ESTERNO)
 // configurazione spring boot
@@ -29,7 +30,8 @@ class App extends Component {
             caosSelezionato: 1,
             lancioDado: 0,
             exceptionalYes: 0,
-            domanda: ''
+            domande: [],
+            mostraFateChart: false
         };
         this.creaFateChart = this.creaFateChart.bind(this);
         this.probabilitaScelta = this.probabilitaScelta.bind(this);
@@ -57,8 +59,7 @@ class App extends Component {
     }
 
     creaFateChart = () => fateChart.map(
-            (info, index) => {
-                console.log(this.state.selectedOption);
+            info => {
             return(
                 <tr>
                     <th id={"tb_" + info.probability} style={{backgroundColor: this.state.selectedOption === info.probability ? 'green' : 'white'}}>{info.probability}</th>
@@ -86,42 +87,94 @@ class App extends Component {
   
 
     probabilitaScelta = (evento) => {
+        const state = {
+            ...this.state
+        }
+        
+        state.selectedOption = evento.target.value;
+
         this.setState({ 
-            selectedOption: evento.target.value
+            selectedOption: state.selectedOption
         });
-        console.log(this.state.selectedOption)
+        
     }
     
 
     valoreCaos = (caos) => {
-        this.setState({ caosSelezionato: caos })
+        const state = {
+            ...this.state
+        }
+        state.caosSelezionato = caos;
+
+        this.setState({ caosSelezionato: state.caosSelezionato })
     }
 
     calcolaRisposta = (_lancioDado) => {
-        this.prendeCella();
-        console.log(exceptionalYes);
-        refVerificaValori.current.varificaValori(_lancioDado, this.state.caosSelezionato)
+        refVerificaValori.current.verificaValori(_lancioDado, this.state.caosSelezionato)
         refVerificaRisposta.current.verificaRisposta(_lancioDado, yesNo, exceptionalYes, exceptionalNo);
         
     }
 
+
+    attivaFateChart = () => {
+        const fateChartVisibility = this.state.mostraFateChart;
+        this.setState({
+            mostraFateChart: !fateChartVisibility
+        })
+    }
+
+
+    domandaRicevuta = (domanda) => {
+        let domande = [...this.state.domande]
+
+        domande = [
+            ...domande,
+            {
+                testo: domanda
+            }
+        ]
+
+        this.setState({
+            domande: domande
+        })
+    }
+
+    eliminaDomanda = (indexDomanda) => {
+        const domande = [...this.state.domande];
+        domande.splice(indexDomanda, 1);
+        this.setState({
+            domande: domande
+        });
+    }
     
 
 
 
     render() { 
+
+    let fateChart = null;
+
+
+    // Verifica se deve mostrare il fateChart
+    if (this.state.mostraFateChart) {
+        fateChart = (
+            <Table>
+                {this.creaFateChart()}
+            </Table>
+        )
+
+    }
         return (
             <div>
-                <InputDomanda input={this.state.domanda}/>
+                <InputDomanda domande={this.state.domande} domandaEffettuata={this.domandaRicevuta} eliminaDomanda={this.eliminaDomanda}/>
                 <MenuScelta probabilitaScelta={this.probabilitaScelta}/>
                 <Caos valoreCaos={this.valoreCaos}/>
                 <button onClick={this.passaProbabilitaScelta} style={{display: this.state.selectedOption === '' ? "none" : "block"}}>Calcola</button>
                 <Dado probabilitaScelta={this.state.selectedOption} calcolaRisposta={this.calcolaRisposta}/>
-                <MostraRisposta risultatoDado={this.state.lancioDado} ref={refVerificaRisposta}/>  
+                <MostraRisposta risultatoDado={this.state.lancioDado} ref={refVerificaRisposta} probabilitaScelta={this.state.selectedOption} caosSelezionato={this.state.caosSelezionato}/>  
                 <VerificaEventoInaspettato risultatoDado={this.state.lancioDado} caosSelezionato={this.state.caosSelezionato} ref={refVerificaValori}/>            
-                <Table>
-                    {this.creaFateChart()}
-                </Table>
+                {fateChart}
+                <button onClick={this.attivaFateChart}>FateChart</button>
             </div>
         );
     }
