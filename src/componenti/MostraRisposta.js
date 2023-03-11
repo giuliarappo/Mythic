@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
 
 
 class MostraRisposta extends Component {
@@ -54,4 +52,4 @@ class MostraRisposta extends Component {
     }
 }
  
-export default MostraRisposta;
+export default MostraRisposta; 

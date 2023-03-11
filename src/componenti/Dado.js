@@ -25,7 +25,7 @@ class Dado extends Component {
 
         if (configuration.dammiSoloNumeriPolindromi === true) {
             
-            risultato = Math.round((Math.random() * 9) + 1) * 11;
+            risultato = configuration.numero;
         }
         
         this.props.calcolaRisposta(risultato);

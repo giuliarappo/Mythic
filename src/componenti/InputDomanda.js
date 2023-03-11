@@ -1,26 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
-const InputDomanda = () => {
+const InputDomanda = ({domande, domandaEffettuata, eliminaDomanda}) => {
 
-    const [input, setInput] = useState('');
-    const [domanda, setDomanda] = useState([]);
+    let input;
 
     const domandaDigitata = (e) => {
-        setInput(e.target.value);
+        input = e.target.value;
     }
 
     const domandaConfermata = (e) => {
         e.preventDefault();
-        setDomanda(
-            [
-                ...domanda,
-                {
-                    testo: input,
-                    risposta: 'risposta'
-                }
-            ]
-        )
-        
+        domandaEffettuata(input);
         
     }
     
@@ -29,15 +19,18 @@ const InputDomanda = () => {
     return(
         <div>
             <form>
-                <labe>Inserisci la risposta</labe>
+                <label>Inserisci la risposta</label>
                 <input onChange={domandaDigitata}></input>
                 <button onClick={domandaConfermata}>Fai la domanda</button>
             </form>
             
-            {domanda.map((domandaCorrente) => {
+            {domande.map((domandaCorrente, indexDomanda) => {
 
                 return(
-                    <h1>{domandaCorrente.testo}</h1>
+                    <div>
+                        <h1>{domandaCorrente.testo}</h1>
+                        <button onClick={() => eliminaDomanda(indexDomanda)}>Elimina</button>
+                    </div>
                 )
             }
                 

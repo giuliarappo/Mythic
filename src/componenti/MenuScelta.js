@@ -4,7 +4,6 @@ import fateChart from '../resurcess/dati.json';
 
 const DisplayData = fateChart.map(
     (probability) => {
-        console.log(probability)
 
         return(
             
